@@ -8,5 +8,4 @@ include puppet::local
     mode => '700',
   }
 
-  class {'puppet-local':}
 }
