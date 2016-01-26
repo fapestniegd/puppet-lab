@@ -1,7 +1,7 @@
 class aptly(){
   package { 'aptly':
     ensure => latest,
-    require => ['/etc/apt/sources.list.d/aptly.list'] 
+    require => File['/etc/apt/sources.list.d/aptly.list'] 
   }
 
   file { '/etc/apt/sources.list.d/aptly.list':
