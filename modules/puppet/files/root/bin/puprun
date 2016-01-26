@@ -1,3 +1,8 @@
 #!/bin/bash
 export PROOT="/etc/puppet/"
+
+# get the latest commits
+( cd $PROOT; git pull origin $(git branch|grep '*'|awk '{print $NF}' | sed -e 's/.*\///') )
+
+# run puppet and include module facts (if any)
 env FACTERLIB=$(find  ${PROOT}/modules/*/lib/facter -type d | xargs | tr ' ' ':') puppet apply --verbose --modulepath=${PROOT}/modules ${PROOT}/manifests/nodes/$(hostname -f).pp
