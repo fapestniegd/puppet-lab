@@ -1,5 +1,5 @@
-class jenkins(){
+class jenkins {
   package { 'jenkins':
-    ensure => present,
+    ensure => installed,
   }
 }
