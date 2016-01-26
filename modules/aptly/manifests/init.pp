@@ -4,11 +4,11 @@ class aptly(){
 #    
 #  }
 
-  file { '/etc/apt/source.list.d/aptly.list':
+  file { '/etc/apt/sources.list.d/aptly.list':
     ensure => file,
     mode   => '0755',
     owner  => 'root',
     group  => 'root',
-    source => 'puppet:///modules/aptly/etc/apt/source.list.d/aptly.list',
+    source => 'puppet:///modules/aptly/etc/apt/sources.list.d/aptly.list',
   }
 }
