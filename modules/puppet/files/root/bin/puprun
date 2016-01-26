@@ -1,0 +1,3 @@
+#!/bin/bash
+export PROOT="/etc/puppet/"
+env FACTERLIB=$(find  ${PROOT}/modules/*/lib/facter -type d | xargs | tr ' ' ':') puppet apply --verbose --modulepath=${PROOT}/modules ${PROOT}/manifests/nodes/$(hostname -f).pp
