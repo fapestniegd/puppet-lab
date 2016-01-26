@@ -1,6 +1,7 @@
 #!/bin/bash
+additional_args="$*"
 # get the latest commits
 ( cd /etc/puppet; git pull origin $(git branch|grep '*'|awk '{print $NF}' | sed -e 's/.*\///') )
 
 # run puppet and include module facts (if any)
-env FACTERLIB=$(find  /etc/puppet/modules/*/lib/facter -type d | xargs | tr ' ' ':') puppet apply --verbose --modulepath=/etc/puppet/modules /etc/puppet/manifests/nodes/$(hostname -f).pp
+env FACTERLIB=$(find  /etc/puppet/modules/*/lib/facter -type d | xargs | tr ' ' ':') puppet apply --verbose --modulepath=/etc/puppet/modules ${additional_args} /etc/puppet/manifests/nodes/$(hostname -f).pp
