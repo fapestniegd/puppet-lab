@@ -8,6 +8,6 @@ class puppet::local(){
     mode   => '0700',
     owner  => 'root',
     group  => 'root',
-    source => 'puppet:///modules/puppet/root/pupprun',
+    source => 'puppet:///modules/puppet/root/bin/pupprun',
   }
 }
