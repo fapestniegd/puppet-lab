@@ -5,7 +5,7 @@ class jenkins {
   package { 'jenkins':
     ensure => latest, 
     require => [ 
-                 File['/etc/apt/source.list.d/jenkins.list'],
+                 File['/etc/apt/sources.list.d/jenkins.list'],
                  Exec['add_jenkins_signature'],
                  Exec['jenkins_apt_get_update']
                ]
@@ -13,7 +13,7 @@ class jenkins {
   }
  
   #create apt source list file for jenkins 
-  file { '/etc/apt/source.list.d/jenkins.list':
+  file { '/etc/apt/sources.list.d/jenkins.list':
        ensure => file, 
        mode   => '0644',
        owner  => 'root',
