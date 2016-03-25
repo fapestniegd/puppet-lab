@@ -9,7 +9,7 @@ class aptly(){
   }
 
   exec {'add_aptly_signature':
-    command => "/usr/bin/apt-key adv --keyserver keys.gnupg.net --recv-keys E083A3782A194991"
+    command => "/usr/bin/apt-key adv --keyserver keys.gnupg.net --recv-keys 9E3E53F19C7DE460"
   }
 
   exec {'aptly_apt_get_update':
