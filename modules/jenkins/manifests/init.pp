@@ -24,7 +24,7 @@ class jenkins {
 
   # Execute line for Adding Jenkins gpg signature to host
   exec {'add_jenkins_signature':
-           command => "wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -"
+           command => "/usr/bin/wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | /usr/bin/apt-key add -"
    }
   
   # Execute line for updating apt sources list after adding jenkins gpg key 
